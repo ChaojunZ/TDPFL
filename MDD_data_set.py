@@ -10,19 +10,19 @@ from sklearn import preprocessing
 class DatasetHCPRest1(Dataset):
     def __init__(self, k_fold=None):
         super().__init__()
-        site1 = scipy.io.loadmat(r'D:\2024博士工作\FL\code\FLcode\data\site20.mat')
-        site1_s = scipy.io.loadmat(r'D:\2024博士工作\FL\code\FLcode\data\site20_s.mat')
-        f = pd.read_csv(r'D:\2024博士工作\FL\code\FLcode\data\site20_info.csv')
+        site1 = scipy.io.loadmat(r'D:\FLcode\data\site20.mat')
+        site1_s = scipy.io.loadmat(r'D:\FLcode\data\site20_s.mat')
+        f = pd.read_csv(r'D:\FLcode\data\site20_info.csv')
         bold1 = site1['site20DATA']
         s1 = site1_s['site20_s']
         #s1 = s1[:, :, :175]
-        bold1[np.isnan(bold1)] = 0  # 将所有nan替换为0
-        bold1[np.isinf(bold1)] = 0  # 将所有inf替换为0
-        # min_val = np.min(bold1, axis=(-2, -1), keepdims=True)  # 沿着最后两个轴找到最小值
-        # max_val = np.max(bold1, axis=(-2, -1), keepdims=True)  # 沿着最后两个轴找到最大值
-        # range_val = max_val - min_val  # 计算值域
+        bold1[np.isnan(bold1)] = 0  # 
+        bold1[np.isinf(bold1)] = 0  # 
+        # min_val = np.min(bold1, axis=(-2, -1), keepdims=True)  # 
+        # max_val = np.max(bold1, axis=(-2, -1), keepdims=True)  # 
+        # range_val = max_val - min_val  #
         #
-        # # 防止除以零的情况发生
+        # # 
         # range_val[range_val == 0] = 1
         #
         # bold1 = ((bold1 - min_val) / range_val) * 2 - 1  # 归一化到 (-1, 1)
@@ -88,19 +88,19 @@ class DatasetHCPRest1(Dataset):
 class DatasetHCPRest2(Dataset):
     def __init__(self, k_fold=None):
         super().__init__()
-        site1 = scipy.io.loadmat(r'D:\2024博士工作\FL\code\FLcode\data\site21.mat')
-        site1_s = scipy.io.loadmat(r'D:\2024博士工作\FL\code\FLcode\data\site21_s.mat')
-        f = pd.read_csv(r'D:\2024博士工作\FL\code\FLcode\data\site21_info.csv')
+        site1 = scipy.io.loadmat(r'D:\FLcode\data\site21.mat')
+        site1_s = scipy.io.loadmat(r'D:\FLcode\data\site21_s.mat')
+        f = pd.read_csv(r'D:\FLcode\data\site21_info.csv')
         bold1 = site1['site21DATA']
         s1 = site1_s['site21_s']
         #s1 = s1[:, :, :175]
-        bold1[np.isnan(bold1)] = 0  # 将所有nan替换为0
-        bold1[np.isinf(bold1)] = 0  # 将所有inf替换为0
-        # min_val = np.min(bold1, axis=(-2, -1), keepdims=True)  # 沿着最后两个轴找到最小值
-        # max_val = np.max(bold1, axis=(-2, -1), keepdims=True)  # 沿着最后两个轴找到最大值
-        # range_val = max_val - min_val  # 计算值域
+        bold1[np.isnan(bold1)] = 0  # 
+        bold1[np.isinf(bold1)] = 0  #
+        # min_val = np.min(bold1, axis=(-2, -1), keepdims=True)  # 
+        # max_val = np.max(bold1, axis=(-2, -1), keepdims=True)  #
+        # range_val = max_val - min_val  # 
         #
-        # # 防止除以零的情况发生
+        # 
         # range_val[range_val == 0] = 1
         #
         # bold1 = ((bold1 - min_val) / range_val) * 2 - 1  # 归一化到 (-1, 1)
@@ -166,22 +166,22 @@ class DatasetHCPRest2(Dataset):
 class DatasetHCPRest3(Dataset):
     def __init__(self, k_fold=None):
         super().__init__()
-        site1 = scipy.io.loadmat(r'D:\2024博士工作\FL\code\FLcode\data\site25.mat')
-        site1_s = scipy.io.loadmat(r'D:\2024博士工作\FL\code\FLcode\data\site25_s.mat')
-        f = pd.read_csv(r'D:\2024博士工作\FL\code\FLcode\data\site25_info.csv')
+        site1 = scipy.io.loadmat(r'D:\FLcode\data\site25.mat')
+        site1_s = scipy.io.loadmat(r'D:\FLcode\data\site25_s.mat')
+        f = pd.read_csv(r'D:\FLcode\data\site25_info.csv')
         bold1 = site1['site25DATA']
         s1 = site1_s['site25_s']
         #s1 = s1[:, :, :175]
-        # site1 = scipy.io.loadmat(r'D:\2024博士工作\FL\code\FLcode\data\UCLA.mat')
-        # f = pd.read_csv(r'D:\2024博士工作\FL\code\FLcode\data\UCLA_info.csv')
+        # site1 = scipy.io.loadmat(r'D:\FLcode\data\UCLA.mat')
+        # f = pd.read_csv(r'D:\FLcode\data\UCLA_info.csv')
         # bold1 = site1['UCLADATA']
-        bold1[np.isnan(bold1)] = 0  # 将所有nan替换为0
-        bold1[np.isinf(bold1)] = 0  # 将所有inf替换为0
-        # min_val = np.min(bold1, axis=(-2, -1), keepdims=True)  # 沿着最后两个轴找到最小值
-        # max_val = np.max(bold1, axis=(-2, -1), keepdims=True)  # 沿着最后两个轴找到最大值
+        bold1[np.isnan(bold1)] = 0  
+        bold1[np.isinf(bold1)] = 0 
+        # min_val = np.min(bold1, axis=(-2, -1), keepdims=True)  
+        # max_val = np.max(bold1, axis=(-2, -1), keepdims=True) 
         # range_val = max_val - min_val  # 计算值域
         #
-        # # 防止除以零的情况发生
+        
         # range_val[range_val == 0] = 1
         #
         # bold1 = ((bold1 - min_val) / range_val) * 2 - 1  # 归一化到 (-1, 1)
