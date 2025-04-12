@@ -52,24 +52,3 @@ class STAR(nn.Module):
         output = combined_mean_cat.view(batch_size, num_windows, channels, d_series)
 
         return output
-
-def sliding_window(input, window_size, stride):
-    B, D, L = input.shape
-    windows = [input[:, :, i:i+window_size] for i in range(0, L - window_size + 1, stride)]
-    return torch.stack(windows, dim=1)  # 输出形状: (B, num_windows, D, window_size)
-
-if __name__ == '__main__':
-    x1 = torch.randn(10, 64, 20)#.to(device)  # 输入张量 (B, D, L)
-    window_size = 10
-    stride = 2
-
-    # 滑动窗口划分
-    x1_windows = sliding_window(x1, window_size, stride)  # (B, num_windows, D, window_size)
-    B, num_windows, D, L = x1_windows.shape
-
-    # 初始化 STAR 模型
-    Model = STAR(d_series=window_size, d_core=D)#.to(device)
-
-    # 并行处理每组窗口
-    out = Model(x1_windows)  # 输出形状: (B, num_windows, D, window_size)
-    print(out.shape)
